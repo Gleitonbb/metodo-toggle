@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0px;
+            padding: 0px;
+            border: none;
+        }
+        main{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+.caixa{
+    background-color: rgb(205, 228, 205);
+    border: 4px solid black;
+    height: 700px;
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 10px;
+}
+button{
+    width: 200px;
+    height: 40px;
+    font-size: 1em;
+    border-radius: 7px;
+    margin: 10px;
+    /* color: white; */
+    border: 20px solid rgb(124, 123, 123);
+    padding-bottom: 20px;
+    cursor: pointer;
+}
+.nomes{
+    display: flex;
+    justify-content: center;
+    
+    
+
+}
+.c1{
+    background-color: #c0bebe;
+    border: 2px solid black;
+    width: 150px;
+    height: 50px;
+    margin: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    cursor: pointer;
+}
+.selecionar{
+    border: 3px solid red !important;
+    background-color: rgb(95, 93, 93) !important;
+    color: white !important;
+}
+    </style>
+</head>
+<body>
+    <main>
+        <div id="caixa1" class="caixa">
+            <div id="c1" class="nomes c1">Joaquin</div>
+            <div id="c1" class="nomes c1">Eldina</div>
+            <div id="c1" class="nomes c1">João</div>
+            <div id="c1" class="nomes c1">Luan</div>
+        </div>
+        <div id="caixa2" class="caixa"></div>
+    </main>
+
+    <script>
+     const caixa2 = document.querySelector('#caixa2')
+     const c1 = [...document.querySelectorAll('.nomes')]
+    
+     
+     const nomesFam = ['Nilton','Vinicio','Nadya','Carla','Cristina']
+     nomesFam.map((upu)=>{
+        const nomesInt = document.createElement('div')
+        nomesInt.setAttribute('id','c2')
+        nomesInt.setAttribute('class','nomes c1')
+        nomesInt.innerHTML = upu
+        caixa2.appendChild(nomesInt)
+ })
+
+     c1.map((upu,pos)=>{
+        upu.addEventListener('click',(evt)=>{
+            const todosNomes = evt.target
+            todosNomes.classList.add('selecionar')
+            console.log(todosNomes)
+            alert(`O nome clicado foi ${todosNomes.textContent} da Familia Brito `)
+        })
+     })
+        
+    </script>
+</body>
+</html>
